@@ -27,15 +27,6 @@ func canEditGroup(c *roblox.Client, groupID int64) error {
 		return ErrNotMember
 	}
 
-	groupPermissions := groupMembership.Permissions.GroupEconomyPermissions
-	if canCreateItems := groupPermissions.CreateItems; !canCreateItems {
-		return ErrNoCreateItemPermission
-	}
-
-	if canManageGames := groupPermissions.ManageGroupGames; !canManageGames {
-		return ErrNoManageGroupGames
-	}
-
 	return nil
 }
 
